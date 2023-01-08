@@ -1,4 +1,3 @@
-
 function createChart(dict) {
     labels = Object.keys(dict)
     data = []
@@ -18,11 +17,6 @@ function createChart(dict) {
             }]
         },
         options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
         }
     });
 }
