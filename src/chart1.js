@@ -1,4 +1,3 @@
-
 function createChart(dict) {
     labels = Object.keys(dict)
     data = []
