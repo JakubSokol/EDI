@@ -14,15 +14,10 @@ function createChart(dict) {
             datasets: [{
                 label: 'most popular cars',
                 data: data,
-                borderWidth: 1
+                borderWidth: 0
             }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
-                }
-            }
         }
     });
+
+    return dict
 }
