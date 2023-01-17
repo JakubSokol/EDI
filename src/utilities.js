@@ -1,10 +1,11 @@
-function createURL() {
-    return "https://my.api.mockaroo.com/groupProject.json?key=018bd330"
+function createURL(number) {
+    return "https://raw.githubusercontent.com/JakubSokol/EDI/main/jsonfiles/file"+number+".json"
 }
 
-async function apiRequest() {
+
+async function apiRequest(URL) {
     try {
-        var response = await fetch(createURL())
+        var response = await fetch(URL)
         return response.json()
     } catch (error) {
         console.error(error)
@@ -46,10 +47,13 @@ function earnings(data){
 }
 
 
-apiRequest()
-    .then(data => cars(data))
-    .then(dict => createChart(dict))
 
-apiRequest()
-    .then(data => earnings(data))
-    .then(dict => createChart2(dict))
+function createCharts(number){ 
+    apiRequest(createURL(number))
+        .then(data => cars(data))
+        .then(dict => createChart(dict))
+
+    apiRequest(createURL(number))
+        .then(data => earnings(data))
+        .then(dict => createChart2(dict))
+}
